@@ -1,0 +1,27 @@
+[0.585s] Invoking command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_bme680': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ipas_bme680 build --build-base /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build install --record /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/install.log --install-scripts $base/lib/ipas_bme680 --single-version-externally-managed install_data
+[0.757s] running egg_info
+[0.764s] writing ../../build/ipas_bme680/ipas_bme680.egg-info/PKG-INFO
+[0.764s] writing dependency_links to ../../build/ipas_bme680/ipas_bme680.egg-info/dependency_links.txt
+[0.764s] writing entry points to ../../build/ipas_bme680/ipas_bme680.egg-info/entry_points.txt
+[0.765s] writing requirements to ../../build/ipas_bme680/ipas_bme680.egg-info/requires.txt
+[0.765s] writing top-level names to ../../build/ipas_bme680/ipas_bme680.egg-info/top_level.txt
+[0.780s] reading manifest file '../../build/ipas_bme680/ipas_bme680.egg-info/SOURCES.txt'
+[0.780s] writing manifest file '../../build/ipas_bme680/ipas_bme680.egg-info/SOURCES.txt'
+[0.780s] running build
+[0.780s] running build_py
+[0.780s] copying ipas_bme680/setup.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+[0.781s] copying ipas_bme680/bme680_node.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+[0.781s] copying ipas_bme680/__init__.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+[0.781s] copying ipas_bme680/py.typed -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+[0.781s] running install
+[0.783s] running install_lib
+[0.790s] running install_data
+[0.790s] copying resource/ipas_bme680 -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/share/ament_index/resource_index/packages
+[0.790s] copying package.xml -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/share/ipas_bme680
+[0.790s] running install_egg_info
+[0.798s] removing '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680-0.0.0-py3.14.egg-info' (and everything under it)
+[0.798s] Copying ../../build/ipas_bme680/ipas_bme680.egg-info to /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680-0.0.0-py3.14.egg-info
+[0.798s] running install_scripts
+[0.834s] Installing bme680_node script to /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/ipas_bme680
+[0.835s] writing list of installed files to '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/install.log'
+[0.850s] Invoked command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_bme680' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ipas_bme680 build --build-base /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build install --record /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/install.log --install-scripts $base/lib/ipas_bme680 --single-version-externally-managed install_data

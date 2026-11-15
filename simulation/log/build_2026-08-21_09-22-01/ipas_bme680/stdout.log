@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/ipas_bme680/ipas_bme680.egg-info
+writing ../../build/ipas_bme680/ipas_bme680.egg-info/PKG-INFO
+writing dependency_links to ../../build/ipas_bme680/ipas_bme680.egg-info/dependency_links.txt
+writing entry points to ../../build/ipas_bme680/ipas_bme680.egg-info/entry_points.txt
+writing requirements to ../../build/ipas_bme680/ipas_bme680.egg-info/requires.txt
+writing top-level names to ../../build/ipas_bme680/ipas_bme680.egg-info/top_level.txt
+writing manifest file '../../build/ipas_bme680/ipas_bme680.egg-info/SOURCES.txt'
+reading manifest file '../../build/ipas_bme680/ipas_bme680.egg-info/SOURCES.txt'
+writing manifest file '../../build/ipas_bme680/ipas_bme680.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+copying ipas_bme680/setup.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+copying ipas_bme680/bme680_node.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+copying ipas_bme680/__init__.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+copying ipas_bme680/py.typed -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680
+running install
+running install_lib
+creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680
+copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680/py.typed -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680
+copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680/setup.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680
+copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680/bme680_node.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680
+copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/build/lib/ipas_bme680/__init__.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680
+byte-compiling /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680/setup.py to setup.cpython-314.pyc
+byte-compiling /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680/bme680_node.py to bme680_node.cpython-314.pyc
+byte-compiling /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680/__init__.py to __init__.cpython-314.pyc
+running install_data
+creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/share/ament_index/resource_index/packages
+copying resource/ipas_bme680 -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/share/ament_index/resource_index/packages
+copying package.xml -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/share/ipas_bme680
+running install_egg_info
+Copying ../../build/ipas_bme680/ipas_bme680.egg-info to /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/python3.14/site-packages/ipas_bme680-0.0.0-py3.14.egg-info
+running install_scripts
+Installing bme680_node script to /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680/lib/ipas_bme680
+writing list of installed files to '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_bme680/install.log'

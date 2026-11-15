@@ -1,0 +1,7 @@
+{
+  "package_name": "ipas_interfaces",
+  "output_dir": "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces/rosidl_generator_type_description/ipas_interfaces",
+  "idl_tuples": [
+    "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces/rosidl_adapter/ipas_interfaces:msg/IPASMeasurement.idl"
+  ]
+}

@@ -1,0 +1,30 @@
+[0.702s] Invoking command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_logger': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ipas_logger build --build-base /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build install --record /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/install.log --install-scripts $base/lib/ipas_logger --single-version-externally-managed install_data
+[0.955s] running egg_info
+[0.962s] creating ../../build/ipas_logger/ipas_logger.egg-info
+[0.962s] writing ../../build/ipas_logger/ipas_logger.egg-info/PKG-INFO
+[0.962s] writing dependency_links to ../../build/ipas_logger/ipas_logger.egg-info/dependency_links.txt
+[0.962s] writing requirements to ../../build/ipas_logger/ipas_logger.egg-info/requires.txt
+[0.962s] writing top-level names to ../../build/ipas_logger/ipas_logger.egg-info/top_level.txt
+[0.962s] writing manifest file '../../build/ipas_logger/ipas_logger.egg-info/SOURCES.txt'
+[0.977s] reading manifest file '../../build/ipas_logger/ipas_logger.egg-info/SOURCES.txt'
+[0.977s] writing manifest file '../../build/ipas_logger/ipas_logger.egg-info/SOURCES.txt'
+[0.977s] running build
+[0.977s] running build_py
+[0.978s] creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build/lib/ipas_logger
+[0.978s] copying ipas_logger/__init__.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build/lib/ipas_logger
+[0.978s] copying ipas_logger/py.typed -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build/lib/ipas_logger
+[0.978s] running install
+[0.980s] running install_lib
+[0.987s] creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages/ipas_logger
+[0.987s] copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build/lib/ipas_logger/py.typed -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages/ipas_logger
+[0.987s] copying /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build/lib/ipas_logger/__init__.py -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages/ipas_logger
+[0.987s] byte-compiling /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages/ipas_logger/__init__.py to __init__.cpython-314.pyc
+[0.987s] running install_data
+[0.987s] creating /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/share/ament_index/resource_index/packages
+[0.987s] copying resource/ipas_logger -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/share/ament_index/resource_index/packages
+[0.987s] copying package.xml -> /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/share/ipas_logger
+[0.987s] running install_egg_info
+[0.994s] Copying ../../build/ipas_logger/ipas_logger.egg-info to /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages/ipas_logger-0.0.0-py3.14.egg-info
+[0.995s] running install_scripts
+[1.031s] writing list of installed files to '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/install.log'
+[1.045s] Invoked command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_logger' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_logger/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ipas_logger build --build-base /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/build install --record /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_logger/install.log --install-scripts $base/lib/ipas_logger --single-version-externally-managed install_data

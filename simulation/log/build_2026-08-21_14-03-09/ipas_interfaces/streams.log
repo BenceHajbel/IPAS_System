@@ -1,0 +1,238 @@
+[0.225s] Invoking command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_interfaces -DCMAKE_INSTALL_PREFIX=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces
+[0.425s] -- The C compiler identification is GNU 15.2.0
+[0.499s] -- The CXX compiler identification is GNU 15.2.0
+[0.505s] -- Detecting C compiler ABI info
+[0.562s] -- Detecting C compiler ABI info - done
+[0.570s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.570s] -- Detecting C compile features
+[0.571s] -- Detecting C compile features - done
+[0.581s] -- Detecting CXX compiler ABI info
+[0.681s] -- Detecting CXX compiler ABI info - done
+[0.693s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.693s] -- Detecting CXX compile features
+[0.694s] -- Detecting CXX compile features - done
+[0.704s] -- Found ament_cmake: 2.8.7 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[0.856s] -- Found rosidl_default_generators: 1.8.1 (/opt/ros/lyrical/share/rosidl_default_generators/cmake)
+[0.862s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.950s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.042s] -- Found rosidl_adapter: 5.2.1 (/opt/ros/lyrical/share/rosidl_adapter/cmake)
+[1.348s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter
+[3.247s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.468s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.344s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter Development NumPy Development.Module Development.Embed
+[5.463s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter
+[5.482s] -- Configuring done (5.2s)
+[5.563s] -- Generating done (0.1s)
+[5.594s] -- Build files have been written to: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces
+[5.608s] Invoked command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_interfaces -DCMAKE_INSTALL_PREFIX=/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces
+[5.612s] Invoking command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces -- -j20 -l20
+[5.723s] [  2%] [1m[34mGenerating Rust code for ROS interfaces[0m
+[5.735s] [  5%] [1m[34mGenerating type hashes for ROS interfaces[0m
+[5.956s] [  5%] Built target ipas_interfaces__rosidl_generator_type_description
+[5.963s] [  8%] [1m[34mGenerating C code for ROS interfaces[0m
+[5.971s] [ 11%] [1m[34mGenerating C++ code for ROS interfaces[0m
+[5.972s] [ 11%] Built target ipas_interfaces__rs
+[6.134s] [ 11%] Built target ipas_interfaces__cpp
+[6.154s] [ 14%] [32mBuilding C object CMakeFiles/ipas_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ipas_interfaces/msg/detail/ipas_measurement__description.c.o[0m
+[6.157s] [ 17%] [32mBuilding C object CMakeFiles/ipas_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ipas_interfaces/msg/detail/ipas_measurement__functions.c.o[0m
+[6.158s] [ 20%] [32mBuilding C object CMakeFiles/ipas_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ipas_interfaces/msg/detail/ipas_measurement__type_support.c.o[0m
+[6.275s] [ 22%] [1m[32mLinking C shared library libipas_interfaces__rosidl_generator_c.so[0m
+[6.361s] [ 22%] Built target ipas_interfaces__rosidl_generator_c
+[6.383s] [ 25%] [1m[34mGenerating C++ introspection for ROS interfaces[0m
+[6.383s] [ 28%] [1m[34mGenerating C type support dispatch for ROS interfaces[0m
+[6.384s] [ 31%] [1m[34mGenerating C introspection for ROS interfaces[0m
+[6.387s] [ 34%] [1m[34mGenerating C++ type support for eProsima Fast-RTPS[0m
+[6.394s] [ 40%] [1m[34mGenerating C type support for eProsima Fast-RTPS[0m
+[6.394s] [ 40%] [1m[34mGenerating C++ type support dispatch for ROS interfaces[0m
+[6.588s] [ 45%] [32mBuilding CXX object CMakeFiles/ipas_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ipas_interfaces/msg/ipas_measurement__type_support.cpp.o[0m
+[6.588s] [ 45%] [32mBuilding CXX object CMakeFiles/ipas_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ipas_interfaces/msg/ipas_measurement__type_support.cpp.o[0m
+[6.595s] [ 48%] [32mBuilding C object CMakeFiles/ipas_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ipas_interfaces/msg/detail/ipas_measurement__type_support.c.o[0m
+[6.601s] [ 51%] [32mBuilding CXX object CMakeFiles/ipas_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ipas_interfaces/msg/detail/dds_fastrtps/ipas_measurement__type_support.cpp.o[0m
+[6.607s] [ 54%] [32mBuilding CXX object CMakeFiles/ipas_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ipas_interfaces/msg/detail/ipas_measurement__type_support.cpp.o[0m
+[6.621s] [ 57%] [1m[32mLinking CXX shared library libipas_interfaces__rosidl_typesupport_c.so[0m
+[6.622s] [ 60%] [1m[32mLinking C shared library libipas_interfaces__rosidl_typesupport_introspection_c.so[0m
+[6.624s] [ 62%] [32mBuilding CXX object CMakeFiles/ipas_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ipas_interfaces/msg/detail/ipas_measurement__type_support_c.cpp.o[0m
+[6.641s] [ 62%] Built target ipas_interfaces__rosidl_typesupport_introspection_c
+[6.644s] [ 62%] Built target ipas_interfaces__rosidl_typesupport_c
+[6.872s] [ 65%] [1m[32mLinking CXX shared library libipas_interfaces__rosidl_typesupport_cpp.so[0m
+[6.884s] [ 68%] [1m[32mLinking CXX shared library libipas_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[6.896s] [ 68%] Built target ipas_interfaces__rosidl_typesupport_cpp
+[6.910s] [ 68%] Built target ipas_interfaces__rosidl_typesupport_introspection_cpp
+[6.935s] [ 71%] [1m[32mLinking CXX shared library libipas_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[6.947s] [ 74%] [1m[32mLinking CXX shared library libipas_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.978s] [ 74%] Built target ipas_interfaces__rosidl_typesupport_fastrtps_c
+[7.028s] [ 74%] Built target ipas_interfaces__rosidl_typesupport_fastrtps_cpp
+[7.072s] [ 74%] Built target ipas_interfaces
+[7.117s] [ 77%] [1m[34mGenerating Python code for ROS interfaces[0m
+[7.395s] [ 77%] Built target ipas_interfaces__py
+[7.431s] [ 80%] [32mBuilding C object CMakeFiles/ipas_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ipas_interfaces/msg/_ipas_measurement_s.c.o[0m
+[7.466s] [ 80%] Built target ament_cmake_python_sync_ipas_interfaces
+[7.658s] [ 82%] [1m[32mLinking C shared library libipas_interfaces__rosidl_generator_py.so[0m
+[7.682s] [ 82%] Built target ipas_interfaces__rosidl_generator_py
+[7.694s] [ 85%] [32mBuilding C object CMakeFiles/ipas_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[7.694s] [ 88%] [32mBuilding C object CMakeFiles/ipas_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[7.694s] [ 91%] [32mBuilding C object CMakeFiles/ipas_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[7.706s] running egg_info
+[7.712s] creating ipas_interfaces.egg-info
+[7.712s] writing ipas_interfaces.egg-info/PKG-INFO
+[7.713s] writing dependency_links to ipas_interfaces.egg-info/dependency_links.txt
+[7.713s] writing top-level names to ipas_interfaces.egg-info/top_level.txt
+[7.713s] writing manifest file 'ipas_interfaces.egg-info/SOURCES.txt'
+[7.735s] reading manifest file 'ipas_interfaces.egg-info/SOURCES.txt'
+[7.735s] writing manifest file 'ipas_interfaces.egg-info/SOURCES.txt'
+[7.742s] [ 94%] [1m[32mLinking C shared module rosidl_generator_py/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_c.so[0m
+[7.742s] [100%] [1m[32mLinking C shared module rosidl_generator_py/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[7.742s] [100%] [1m[32mLinking C shared module rosidl_generator_py/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[7.755s] [100%] Built target ament_cmake_python_build_ipas_interfaces_egg
+[7.768s] [100%] Built target ipas_interfaces_s__rosidl_typesupport_introspection_c
+[7.771s] [100%] Built target ipas_interfaces_s__rosidl_typesupport_fastrtps_c
+[7.771s] [100%] Built target ipas_interfaces_s__rosidl_typesupport_c
+[7.795s] Invoked command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces -- -j20 -l20
+[7.817s] Invoking command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces
+[7.833s] -- Install configuration: ""
+[7.834s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ament_index/resource_index/rosidl_interfaces/ipas_interfaces
+[7.834s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/msg/IPASMeasurement.json
+[7.834s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.834s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.834s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__struct.h
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__type_support.c
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__description.c
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__functions.c
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__type_support.h
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__functions.h
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/rosidl_generator_c__visibility_control.h
+[7.835s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/ipas_measurement.h
+[7.836s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/library_path.sh
+[7.836s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/library_path.dsv
+[7.836s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_generator_c.so
+[7.836s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_generator_c.so" to ""
+[7.836s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.837s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.837s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.837s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__rosidl_typesupport_fastrtps_c.h
+[7.837s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[7.837s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_fastrtps_c.so
+[7.837s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[7.837s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.838s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.838s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[7.838s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.838s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__type_support.c
+[7.838s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__rosidl_typesupport_introspection_c.h
+[7.838s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_introspection_c.so
+[7.838s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[7.838s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_c.so
+[7.839s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_c.so" to ""
+[7.839s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.839s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.839s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.839s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__type_support.hpp
+[7.839s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__traits.hpp
+[7.839s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__builder.hpp
+[7.839s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__struct.hpp
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/ipas_measurement.hpp
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[7.840s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.840s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.840s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__rosidl_typesupport_fastrtps_cpp.hpp
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/dds_fastrtps
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[7.840s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[7.841s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[7.841s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces
+[7.841s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg
+[7.841s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail
+[7.841s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__rosidl_typesupport_introspection_cpp.hpp
+[7.841s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/include/ipas_interfaces/ipas_interfaces/msg/detail/ipas_measurement__type_support.cpp
+[7.841s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_introspection_cpp.so
+[7.841s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[7.842s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_cpp.so
+[7.842s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_typesupport_cpp.so" to ""
+[7.842s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/pythonpath.sh
+[7.842s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/pythonpath.dsv
+[7.843s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[7.843s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[7.843s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_introspection_c.so
+[7.843s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[7.844s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_c.so
+[7.844s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_c.so" to ""
+[7.844s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_generator_py.so
+[7.844s] -- Set non-toolchain portion of runtime path of "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/libipas_interfaces__rosidl_generator_py.so" to ""
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ament_index/resource_index/rust_packages/ipas_interfaces
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/Cargo.toml
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/build.rs
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/src
+[7.845s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/src/msg.rs
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/src/lib.rs
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/src/msg
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/rust/src/msg/rmw.rs
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/msg/IPASMeasurement.idl
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/msg/IPASMeasurement.msg
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ament_index/resource_index/package_run_dependencies/ipas_interfaces
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ament_index/resource_index/parent_prefix_path/ipas_interfaces
+[7.846s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/ament_prefix_path.sh
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/ament_prefix_path.dsv
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/path.sh
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/environment/path.dsv
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/local_setup.bash
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/local_setup.fish
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/local_setup.sh
+[7.847s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/local_setup.zsh
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/local_setup.dsv
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/package.dsv
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ament_index/resource_index/packages/ipas_interfaces
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_generator_cExport.cmake
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_generator_cExport-noconfig.cmake
+[7.848s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_cExport.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[7.849s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_generator_cppExport.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_cppExport.cmake
+[7.850s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_generator_pyExport.cmake
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/export_ipas_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces-0.0.0-py3.14.egg-info
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces-0.0.0-py3.14.egg-info/dependency_links.txt
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces-0.0.0-py3.14.egg-info/top_level.txt
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces-0.0.0-py3.14.egg-info/PKG-INFO
+[7.851s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces-0.0.0-py3.14.egg-info/SOURCES.txt
+[7.852s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces
+[7.852s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[7.852s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/py.typed
+[7.852s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_c.so
+[7.852s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_c.c
+[7.852s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/__init__.py
+[7.852s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[7.852s] -- Up-to-date: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/ipas_interfaces_s__rosidl_typesupport_introspection_c.so
+[7.853s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg
+[7.853s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg/_ipas_measurement.py
+[7.853s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg/__init__.py
+[7.853s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg/_ipas_measurement_s.c
+[7.853s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/_ipas_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[7.958s] Listing '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces'...
+[7.958s] Compiling '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/__init__.py'...
+[7.958s] Listing '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg'...
+[7.958s] Compiling '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg/__init__.py'...
+[7.958s] Compiling '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/lib/python3.14/site-packages/ipas_interfaces/msg/_ipas_measurement.py'...
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/rosidl_cmake-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[7.969s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[7.970s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfacesConfig.cmake
+[7.970s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/cmake/ipas_interfacesConfig-version.cmake
+[7.970s] -- Installing: /home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_interfaces/share/ipas_interfaces/package.xml
+[7.973s] Invoked command in '/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bence-hajbel/GitHub_repose/IPAS/Simulation/install/ipas_bme680:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces

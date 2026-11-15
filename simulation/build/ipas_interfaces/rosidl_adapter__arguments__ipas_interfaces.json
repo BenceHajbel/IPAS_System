@@ -1,0 +1,6 @@
+{
+  "package_name": "ipas_interfaces",
+  "non_idl_tuples": [
+    "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/src/ipas_interfaces:msg/IPASMeasurement.msg"
+  ]
+}

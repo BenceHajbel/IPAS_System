@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAS — Intelligent Pollution Analyser System</title>
+
+<!-- Fonts: IBM Plex is used if installed on the device; otherwise system fonts. No external requests (the IPAS network has no internet). -->
+
+<style>
+  /* =========================================================
+     DESIGN TOKENS
+     A dark, instrument-panel navy palette. Colour is rationed:
+     cyan is the single interactive/data accent; green, amber
+     and red are reserved strictly for device status.
+  ========================================================= */
+  :root{
+    --bg:              #0a1420;
+    --bg-grid:         rgba(255,255,255,0.035);
+    --panel:           #0e1c2e;
+    --panel-alt:       #0c1826;
+    --border:          rgba(255,255,255,0.09);
+    --border-strong:   rgba(255,255,255,0.16);
+
+    --text-primary:    #e6edf4;
+    --text-secondary:  #9fb0c3;
+    --text-muted:      #5e7188;
+
+    --accent:          #55c2e0;   /* instrument cyan — data & interaction only */
+    --accent-dim:      rgba(85,194,224,0.14);
+
+    --status-online:   #4cc98a;   /* ONLINE only */
+    --status-warn:     #e3a53e;   /* warnings only */
+    --status-offline:  #e35d5d;   /* OFFLINE / error only */
+
+    --radius-sm: 2px;
+    --radius-md: 3px;
+
+    --font-ui:   'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background-color: var(--bg);
+    /* subtle technical grid — kept extremely low-contrast so it never
+       competes with the data sitting on top of it */
+    background-image:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 42px 42px;
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* =========================================================
+     HEADER
+  ========================================================= */
+  header.site-header{
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+  }
+
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 0;
+  }
+
+  .brand-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+
+  .brand-left img{
+    height: 58px;
+    width: 58px;
+    object-fit: contain;
+    display:block;
+    /* the logo already carries its own navy/white palette, so it
+       sits on the dark background as-is — no colour filter needed */
+  }
+
+  .brand-left .school-name{
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    max-width: 150px;
+    line-height: 1.35;
+  }
+
+  .brand-right{
+    text-align: right;
+  }
+
+  .brand-right .product-name{
+    font-family: var(--font-mono);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--text-primary);
+  }
+
+  .brand-right .product-full{
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .header-controls{
+    margin-top: 14px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap: 14px;
+  }
+
+  .lang-toggle{
+    display:flex;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    overflow:hidden;
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .lang-toggle button{
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 5px 10px;
+    cursor:pointer;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-toggle button.active{
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .status-pill{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--status-online);
+    border: 1px solid rgba(76,201,138,0.35);
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(76,201,138,0.06);
+  }
+
+  .status-pill .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--status-online);
+    box-shadow: 0 0 6px var(--status-online);
+  }
+
+  .status-pill.offline{
+    color: var(--status-offline);
+    border-color: rgba(227,93,93,0.35);
+    background: rgba(227,93,93,0.06);
+  }
+  .status-pill.offline .dot{
+    background: var(--status-offline);
+    box-shadow: 0 0 6px var(--status-offline);
+  }
+
+  /* =========================================================
+     SECTION SCAFFOLDING
+  ========================================================= */
+  main{ padding: 44px 0 80px; }
+
+  section.block{ margin-bottom: 56px; }
+
+  .block-heading{
+    display:flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .block-index{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .block-title{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .block-title::after{
+    content:"";
+    display:inline-block;
+  }
+
+  .block-heading .rule{
+    flex:1;
+    height:1px;
+    background: var(--border);
+  }
+
+  /* =========================================================
+     CURRENT CONDITIONS — measurement cards
+  ========================================================= */
+  .measurement-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .measurement-card{
+    position:relative;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 20px 16px;
+    cursor: default;
+    transition: border-color 0.15s ease;
+  }
+
+  .measurement-card:hover,
+  .measurement-card:focus-within{
+    border-color: var(--border-strong);
+  }
+
+  .measurement-card .m-label{
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .measurement-card .m-value-row{
+    display:flex;
+    align-items:baseline;
+    gap: 8px;
+  }
+
+  .measurement-card .m-value{
+    font-family: var(--font-mono);
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .measurement-card .m-unit{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display:block;
+  }
+
+  .measurement-card .m-footer{
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+  }
+
+  .measurement-card .m-sensor{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .info-icon{
+    width: 16px; height:16px;
+    border-radius:50%;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+  }
+
+  .info-icon:hover, .info-icon:focus, .info-icon.active{
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* tooltip */
+  .m-tooltip{
+    position:absolute;
+    z-index: 20;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    width: 230px;
+    background: #0c1a2b;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity 0.12s ease, transform 0.12s ease;
+  }
+
+  .measurement-card.tooltip-visible .m-tooltip{
+    opacity:1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events:auto;
+  }
+
+  .m-tooltip .tt-name{
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .m-tooltip .tt-value{
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .m-tooltip .tt-row{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .m-tooltip .tt-desc{
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* =========================================================
+     MEASUREMENT HISTORY — graph
+  ========================================================= */
+  .graph-panel{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+
+  .graph-controls{
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .control-group{
+    display:flex;
+    flex-direction: column;
+    gap:6px;
+  }
+
+  .control-group .cg-label{
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .btn-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .ctrl-btn{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor:pointer;
+    transition: all 0.12s ease;
+  }
+
+  .ctrl-btn:hover{
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+
+  .ctrl-btn.active{
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .graph-canvas-wrap{
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .graph-title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom: 10px;
+  }
+
+  .graph-title-row .g-title{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  .graph-title-row .g-current{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  svg#history-graph{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display:block;
+    overflow: hidden;
+  }
+
+  .graph-point{
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 1.6;
+    cursor: pointer;
+  }
+  .graph-point:hover, .graph-point.active-point{
+    fill: var(--accent);
+  }
+
+  .graph-tooltip{
+    position:absolute;
+    z-index: 30;
+    background: #0c1a2b;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    width: min(210px, calc(100vw - 32px));
+    box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity 0.1s ease;
+    transform: translate(-50%, -100%);
+  }
+  .graph-tooltip.visible{ opacity:1; }
+
+  .graph-tooltip .gt-date{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .graph-tooltip .gt-name{
+    font-size: 12.5px;
+    font-weight:600;
+    color: var(--text-primary);
+  }
+  .graph-tooltip .gt-value{
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent);
+    margin: 2px 0 8px;
+  }
+  .graph-tooltip .gt-sensor{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .graph-tooltip .gt-desc{
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height:1.4;
+  }
+
+  /* =========================================================
+     PRESSURE / WEATHER
+  ========================================================= */
+  .analysis-row{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pressure-layout{
+    display:grid;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .pressure-summary{
+    min-width:0;
+  }
+
+  .pressure-trend-box{
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .trend-label{
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+  }
+
+  .trend-title{
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--text-primary);
+  }
+
+  .pressure-chart-wrap{
+    position:relative;
+    min-width:0;
+    overflow:hidden;
+  }
+
+  #pressure-graph,
+  #comparison-graph{
+    width:100%;
+    height:auto;
+    max-width:100%;
+    display:block;
+    overflow:hidden;
+  }
+
+  .comparison-layout{
+    display:grid;
+    grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+    gap: 22px;
+    align-items:start;
+  }
+
+  .comparison-chart-wrap{
+    min-width:0;
+    overflow:hidden;
+  }
+
+  .comparison-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:10px;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--text-secondary);
+  }
+
+  .legend-item{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .legend-swatch{
+    width:18px;
+    height:2px;
+    display:inline-block;
+    background:var(--accent);
+  }
+
+  .legend-swatch.official{
+    background:var(--text-secondary);
+  }
+
+  .panel{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 22px 20px;
+  }
+
+  .panel-label{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* pressure trend */
+  .pressure-value{
+    font-family: var(--font-mono);
+    font-size: 34px;
+    color: var(--text-primary);
+  }
+
+  .pressure-delta{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--status-warn);
+  }
+
+  .pressure-delta .arrow{
+    font-size: 15px;
+  }
+
+  .pressure-note{
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .pressure-disclaimer{
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* comparison table */
+  table.compare-table{
+    width:100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+
+  table.compare-table th{
+    text-align: right;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  table.compare-table th:first-child{ text-align:left; }
+
+  table.compare-table td{
+    padding: 10px 0;
+    text-align: right;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+  }
+
+  table.compare-table td:first-child{
+    text-align:left;
+    color: var(--text-secondary);
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+  }
+
+  table.compare-table td.diff{
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
+  table.compare-table tr:last-child td{ border-bottom:none; }
+
+  /* =========================================================
+     FOOTER
+  ========================================================= */
+  footer{
+    border-top: 1px solid var(--border);
+    padding: 22px 0;
+  }
+  footer .foot-text{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-align:center;
+  }
+
+  /* =========================================================
+     RESPONSIVE
+  ========================================================= */
+  @media (max-width: 980px){
+    .measurement-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 720px){
+    .header-inner{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .brand-right{ text-align:left; }
+    .header-controls{ justify-content:flex-start; }
+    .pressure-layout,
+    .comparison-layout{ grid-template-columns: 1fr; }
+    .graph-panel,
+    .panel{ padding: 16px; }
+    .graph-title-row{
+      gap:10px;
+      flex-wrap:wrap;
+    }
+  }
+
+  @media (max-width: 560px){
+    .measurement-grid{ grid-template-columns: 1fr; }
+    .wrap{ padding: 0 16px; }
+    .graph-controls{ flex-direction: column; align-items:flex-start; }
+    .btn-row{ max-width:100%; }
+    .ctrl-btn{ padding:6px 9px; }
+    .graph-title-row .g-title,
+    .graph-title-row .g-current{ font-size:10.5px; }
+    .pressure-value{ font-size:30px; }
+    .pressure-delta{ font-size:12px; }
+    .panel{ padding:14px; }
+  }
+
+  @media (max-width: 400px){
+    .wrap{ padding:0 12px; }
+    .graph-panel{ padding:12px; }
+    .graph-title-row{ margin-bottom:8px; }
+    .graph-title-row .g-title{ max-width:100%; }
+    .ctrl-btn{ font-size:10px; padding:5px 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; animation: none !important; }
+  }
+
+  :focus-visible{
+    outline: 1.5px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* ---- live-data states ---- */
+  .status-pill.warn{ color: var(--status-warn); border-color: rgba(227,165,62,0.35); background: rgba(227,165,62,0.06); }
+  .status-pill.warn .dot{ background: var(--status-warn); box-shadow: 0 0 6px var(--status-warn); }
+  .status-banner{ margin: 14px 0 0; padding: 10px 14px; font-family: var(--font-mono); font-size: 12px; line-height: 1.5;
+    border: 1px solid rgba(227,165,62,0.35); background: rgba(227,165,62,0.08); color: var(--status-warn); border-radius: var(--radius-sm); }
+  .status-banner.offline{ border-color: rgba(227,93,93,0.4); background: rgba(227,93,93,0.08); color: var(--status-offline); }
+  .status-banner[hidden]{ display:none; }
+  .measurement-card.dim .m-value{ opacity: 0.4; }
+  .history-note{ margin-top: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+
+  /* ---- school logo is dark navy on transparent: show it on a white badge ---- */
+  .brand-left img{ background:#fff; border-radius:50%; padding:3px; box-sizing:border-box; }
+  .brand-left .school-name{ max-width: 220px; }
+
+  /* ---- air-quality rating ---- */
+  .m-value.aq-text{ font-size: clamp(20px, 3.4vw, 28px); letter-spacing: 0.02em; line-height: 1.15; }
+  .aq-very_bad, .aq-bad{ color: var(--status-offline); }
+  .aq-medium{ color: var(--status-warn); }
+  .aq-good, .aq-very_good{ color: var(--status-online); }
+  .aq-calibrating{ color: var(--text-muted); }
+  .measurement-card .m-unit.aq-detail{ font-size: 11px; white-space: normal; }
+  .tt-scale{ margin-top: 8px; display:grid; gap:3px; font-family: var(--font-mono); font-size: 11px; }
+  .tt-scale span.sw{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; background:currentColor; }
+  .measurement-card[data-metric="airquality"] .m-tooltip{ width: min(360px, 86vw); right: 0; left: auto; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-inner">
+      <div class="brand-left">
+        <img src="/logo.png" alt="Szent Ferenc Katolikus Általános Iskola és Gimnázium logó">
+        <div class="school-name" data-i18n="school_name">Szent Ferenc Katolikus Általános Iskola és Gimnázium</div>
+      </div>
+      <div class="brand-right">
+        <div class="product-name">IPAS</div>
+        <div class="product-full" data-i18n="product_full">Intelligens Levegőszennyezettség-elemző Rendszer</div>
+        <div class="header-controls">
+          <div class="lang-toggle" role="group" aria-label="Language selector">
+            <button id="lang-hu" class="active" onclick="setLanguage('hu')">HU</button>
+            <button id="lang-en" onclick="setLanguage('en')">EN</button>
+          </div>
+          <div class="status-pill" id="online-status">
+            <span class="dot"></span>
+            <span id="online-status-text">…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="wrap"><div class="status-banner" id="status-banner" hidden></div></div>
+
+<main class="wrap">
+
+  <!-- ============================================================
+       1. CURRENT CONDITIONS
+  ============================================================ -->
+  <section class="block" id="section-current">
+    <div class="block-heading">
+      <span class="block-index">01</span>
+      <span class="block-title" data-i18n="s1_title">Aktuális Állapot</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="measurement-grid" id="measurement-grid">
+      <!-- cards are rendered by JS from the measurementData object -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. MEASUREMENT HISTORY
+  ============================================================ -->
+  <section class="block" id="section-history">
+    <div class="block-heading">
+      <span class="block-index">02</span>
+      <span class="block-title" data-i18n="s2_title">Mérési Előzmények</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="graph-panel">
+      <div class="graph-controls">
+        <div class="control-group">
+          <span class="cg-label" data-i18n="time_range">Időtartomány</span>
+          <div class="btn-row" id="range-buttons">
+            <button class="ctrl-btn" data-range="1h">1H</button>
+            <button class="ctrl-btn" data-range="12h">12H</button>
+            <button class="ctrl-btn active" data-range="24h">24H</button>
+            <button class="ctrl-btn" data-range="7d">7D</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <span class="cg-label" data-i18n="measurement">Mérés</span>
+          <div class="btn-row" id="metric-buttons">
+            <button class="ctrl-btn active" data-metric="temperature" data-i18n="m_temperature">HŐMÉRSÉKLET</button>
+            <button class="ctrl-btn" data-metric="humidity" data-i18n="m_humidity">PÁRATARTALOM</button>
+            <button class="ctrl-btn" data-metric="pressure" data-i18n="m_pressure">LÉGNYOMÁS</button>
+            <button class="ctrl-btn" data-metric="airquality" data-i18n="m_airquality">LEVEGŐMINŐSÉG</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="graph-title-row">
+        <span class="g-title" id="graph-title">TEMPERATURE — 24H</span>
+        <span class="g-current" id="graph-current">—</span>
+      </div>
+
+      <div class="graph-canvas-wrap" id="graph-wrap">
+        <svg id="history-graph" viewBox="0 0 900 280" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="graph-tooltip" id="graph-tooltip">
+          <div class="gt-date" id="gt-date"></div>
+          <div class="gt-name" id="gt-name"></div>
+          <div class="gt-value" id="gt-value"></div>
+          <div class="gt-sensor" id="gt-sensor">Sensor: BME680</div>
+          <div class="gt-desc" id="gt-desc"></div>
+        </div>
+      </div>
+      <div class="history-note" id="history-note"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. AIR PRESSURE & WEATHER TREND
+  ============================================================ -->
+  <section class="block" id="section-pressure">
+    <div class="block-heading">
+      <span class="block-index">03</span>
+      <span class="block-title" data-i18n="s3_title">Légnyomás &amp; Időjárási Trend</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="panel">
+      <div class="pressure-layout">
+        <div class="pressure-summary">
+          <div class="panel-label" data-i18n="air_pressure">LÉGNYOMÁS</div>
+          <div class="pressure-value"><span id="pressure-current">—</span> <span style="font-size:16px;color:var(--text-muted)">hPa</span></div>
+          <div class="pressure-delta" id="pressure-delta">
+            <span class="arrow" id="pressure-arrow">↓</span>
+            <span id="pressure-change">—</span>
+          </div>
+          <div class="pressure-note" id="pressure-note" data-i18n="pressure_note">A légnyomás csökken.</div>
+
+          <div class="pressure-trend-box">
+            <div class="trend-label" data-i18n="weather_trend">IDŐJÁRÁSI TREND</div>
+            <div class="trend-title" id="weather-trend-title">Romló idő valószínű</div>
+            <div class="pressure-note" id="weather-trend-description">
+              A tartós légnyomáscsökkenés időjárási rendszer vagy front közeledésére utalhat.
+            </div>
+          </div>
+
+          <div class="pressure-disclaimer" data-i18n="pressure_disclaimer">
+            Ez légnyomás-alapú trendjelzés, nem biztos időjárás-előrejelzés.
+          </div>
+        </div>
+
+        <div class="pressure-chart-wrap">
+          <div class="graph-title-row">
+            <span class="g-title" data-i18n="pressure_chart_title">LÉGNYOMÁS — TREND</span>
+            <span class="g-current" id="pressure-graph-current">—</span>
+          </div>
+          <svg id="pressure-graph" viewBox="0 0 900 280" preserveAspectRatio="xMidYMid meet" aria-label="Pressure trend graph"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. OFFICIAL DATA COMPARISON
+  ============================================================ -->
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-text">IPAS PROTOTYPE — LIVE BME680 DATA — ESP32-C3 / BME680 · Szent Ferenc Katolikus Általános Iskola és Gimnázium</div>
+  </div>
+</footer>
+
+<div class="wrap"><div class="status-banner offline" id="boot-error" hidden></div></div>
+<script>
+/* Shown only if the dashboard program (app.js) failed to load or crashed. */
+(function(){
+  function show(extra){
+    var b=document.getElementById('boot-error'); if(!b) return;
+    b.hidden=false;
+    b.textContent='A dashboard programja (app.js) nem indult el. Valószínűleg a firmware és a fájlrendszer nem egyezik: futtasd mindkettőt: pio run -t upload, majd pio run -t uploadfs. / The dashboard program (app.js) did not start. Firmware and file system probably do not match: run both pio run -t upload and pio run -t uploadfs.'+(extra?' ['+extra+']':'');
+  }
+  window.addEventListener('error',function(e){ if(!window.__ipasStarted) show(e.message); });
+  setTimeout(function(){ if(!window.__ipasStarted) show('timeout'); },4000);   /* does not depend on the load event: a hanging script must not hide the problem */
+})();
+</script>
+<script src="/ipas-logic.js"></script>
+<script src="/app.js"></script>
+
+</body>
+</html>

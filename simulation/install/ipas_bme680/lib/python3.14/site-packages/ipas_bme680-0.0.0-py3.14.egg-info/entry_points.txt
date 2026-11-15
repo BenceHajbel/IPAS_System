@@ -1,0 +1,2 @@
+[console_scripts]
+bme680_node = ipas_bme680.bme680_node:main

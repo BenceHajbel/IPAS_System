@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "ipas_interfaces__py",
+		"source" : "/home/bence-hajbel/GitHub_repose/IPAS/Simulation/build/ipas_interfaces/ipas_interfaces__py"
+	}
+}
